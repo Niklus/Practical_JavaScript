@@ -6,26 +6,30 @@
 4. Should have a way of changing todos
 5. Should have a way of deleting my todo
 */
+"use strict";
 
-// Define simple functions for apps core requirements
+// Create a todoList object with methods 
 
-var todos = ["item1","item2","item3"]; 
- 
-function displayTodos(){
-	console.log("My Todos: ",todos);
-}
+var todoList = {
+	
+  todos: ["item1","item2","item3"],
+	
+  displayTodos: function(){
+	console.log("My Todos: ", this.todos);
+  },
 
-function addTodo(todo){
-	todos.push(todo);
-	displayTodos();
-}
+  addTodo: function(todo){
+	this.todos.push(todo);
+	this.displayTodos(); 
+  },
 
-function changeTodo(position, newValue){
-  todos[position] = newValue;
-  displayTodos();
-}
+  changeTodo: function(position, newValue){
+    this.todos[position] = newValue;
+    this.displayTodos();
+  },
 
-function deleteTodo(position){
-	todos.splice(position, 1);
-	displayTodos();
-}
+  deleteTodo: function(position){
+    this.todos.splice(position, 1);
+    this.displayTodos();
+  } 
+};
