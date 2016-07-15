@@ -1,19 +1,18 @@
-/*   
+/**  
    Todo's app core requirements 
 1. Should Store my todos
 2. Should have a way to display my todos
 3. Should have a way of adding new todos
 4. Should have a way of changing todos
 5. Should have a way of deleting my todo
+6. Should have a toggle-complete and toggle-all
 */
 "use strict";
  
-  // Represent each of todos items as objects with their own properties. {todotext: "text", completed: false } 
 var todoList = {
-    
-    
-    todos: [], // Should store array of objects: [ {todotext: "text2", completed: false}, {todotext: "text2", completed: false} ] 
-    
+       
+    todos: [], 
+
     displayTodos: function(){ 
       if(this.todos.length === 0){
         console.log("Your todo list is empty!");
@@ -30,10 +29,13 @@ var todoList = {
     },
 
     addTodo: function(todotext){
-      this.todos.push({
-        todotext: todotext,
-        completed: false
-      });
+
+  //  if(todotext.length > 0){  // Disabling the ability of adding an empty todotext?
+        this.todos.push({
+          todotext: todotext,
+          completed: false
+        });
+  //  }
       this.displayTodos(); 
     },
 
@@ -70,13 +72,58 @@ var todoList = {
         for(var i = 0; i < totalTodos; i++){
           this.todos[i].completed = false;
         }
+      
       // Case 2: Otherwise make everything true(complete) 
       } else {                                
         for(var i = 0; i < totalTodos; i++){
           this.todos[i].completed = true;
         }
       }
-
       this.displayTodos();
+    }
+  };
+
+
+  var handlers = {
+
+    displayTodos: function(){
+      todoList.displayTodos();
+    },
+
+    addTodo: function(){
+
+      var addTodoTextInput = document.getElementById("addTodoTextInput");    
+      todoList.addTodo(addTodoTextInput.value);
+      addTodoTextInput.value = "";
+
+    }, 
+
+    changeTodo: function(){
+
+      var changeTodoPositionInput = document.getElementById("changeTodoPositionInput");
+      var changeTodoTextInput = document.getElementById("changeTodoTextInput");
+
+      todoList.changeTodo(changeTodoPositionInput.valueAsNumber, changeTodoTextInput.value);
+      changeTodoTextInput.value = "";
+      changeTodoPositionInput.value = "";
+    },
+
+    deleteTodo: function(){
+
+      var deleteTodoPositionInput = document.getElementById("deleteTodoPositionInput");
+      todoList.deleteTodo(deleteTodoPositionInput.valueAsNumber);
+      deleteTodoPositionInput.value = "";
+
+    },
+
+    toggleCompleted: function(){
+
+      var toggleCompletedPositionInput = document.getElementById("toggleCompletedPositionInput");
+      todoList.toggleCompleted(toggleCompletedPositionInput.valueAsNumber);
+      toggleCompletedPositionInput.value = "";
+    },
+
+    toggleAll: function(){
+      todoList.toggleAll();
     }
   };
