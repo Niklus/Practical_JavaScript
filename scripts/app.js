@@ -1,32 +1,12 @@
-/**  
-   Todo's app core requirements 
-1. Should Store my todos
-2. Should have a way to display my todos
-3. Should have a way of adding new todos
-4. Should have a way of changing todos
-5. Should have a way of deleting my todo
-6. Should have a toggle-complete and toggle-all
-*/
+
+
+//Requirement: Escape the console amd use the DOM for display
+
 "use strict";
  
 var todoList = {
        
-    todos: [], 
-
-    displayTodos: function(){ 
-      if(this.todos.length === 0){
-        console.log("Your todo list is empty!");
-      } else { 
-        console.log("My Todos:");
-        for(var i = 0; i < this.todos.length; i++){
-          if(this.todos[i].completed === true){
-            console.log("(x)", this.todos[i].todotext);
-          } else {
-            console.log("( )", this.todos[i].todotext);
-          }
-        }
-      }
-    },
+    todos: [], // Should store array of objects: [ {todotext: "text2", completed: false}, {todotext: "text2", completed: false} ] 
 
     addTodo: function(todotext){
 
@@ -36,23 +16,19 @@ var todoList = {
           completed: false
         });
   //  }
-      this.displayTodos(); 
     },
 
     changeTodo: function(position, todotext){
       this.todos[position].todotext = todotext;
-      this.displayTodos();
     },
 
     deleteTodo: function(position){
       this.todos.splice(position, 1);
-      this.displayTodos();
     }, 
 
     toggleCompleted: function(position){
       var todo = this.todos[position];
       todo.completed = !todo.completed;
-      this.displayTodos();
     },
 
     toggleAll: function(){
@@ -79,23 +55,18 @@ var todoList = {
           this.todos[i].completed = true;
         }
       }
-      this.displayTodos();
     }
   };
-
+  
 
   var handlers = {
-
-    displayTodos: function(){
-      todoList.displayTodos();
-    },
 
     addTodo: function(){
 
       var addTodoTextInput = document.getElementById("addTodoTextInput");    
       todoList.addTodo(addTodoTextInput.value);
       addTodoTextInput.value = "";
-
+      view.displayTodos();
     }, 
 
     changeTodo: function(){
@@ -106,6 +77,7 @@ var todoList = {
       todoList.changeTodo(changeTodoPositionInput.valueAsNumber, changeTodoTextInput.value);
       changeTodoTextInput.value = "";
       changeTodoPositionInput.value = "";
+      view.displayTodos();    
     },
 
     deleteTodo: function(){
@@ -113,7 +85,7 @@ var todoList = {
       var deleteTodoPositionInput = document.getElementById("deleteTodoPositionInput");
       todoList.deleteTodo(deleteTodoPositionInput.valueAsNumber);
       deleteTodoPositionInput.value = "";
-
+      view.displayTodos();
     },
 
     toggleCompleted: function(){
@@ -121,9 +93,35 @@ var todoList = {
       var toggleCompletedPositionInput = document.getElementById("toggleCompletedPositionInput");
       todoList.toggleCompleted(toggleCompletedPositionInput.valueAsNumber);
       toggleCompletedPositionInput.value = "";
+      view.displayTodos();
     },
 
     toggleAll: function(){
+     
       todoList.toggleAll();
+      view.displayTodos();
+    }
+  };
+
+  
+  //The View
+  var view = {
+
+    displayTodos: function() {
+
+      var todosUl = document.querySelector("ul");
+      todosUl.innerHTML = "";
+
+      for(var i = 0; i < todoList.todos.length; i++){
+
+        var todoLi = document.createElement("li");
+
+        if(todoList.todos[i].completed === true){
+          todoLi.textContent = "(x) " + todoList.todos[i].todotext;
+        } else {
+          todoLi.textContent = "( ) " + todoList.todos[i].todotext;
+        }
+        todosUl.appendChild(todoLi);  
+      }
     }
   };
