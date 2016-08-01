@@ -1,10 +1,10 @@
 
 
-//Requirement: Escape the console amd use the DOM for display
+  //Requirement: Modify delete function
 
 "use strict";
  
-var todoList = {
+  var todoList = {
        
     todos: [], // Should store array of objects: [ {todotext: "text2", completed: false}, {todotext: "text2", completed: false} ] 
 
@@ -80,11 +80,9 @@ var todoList = {
       view.displayTodos();    
     },
 
-    deleteTodo: function(){
+    deleteTodo: function(position){
 
-      var deleteTodoPositionInput = document.getElementById("deleteTodoPositionInput");
-      todoList.deleteTodo(deleteTodoPositionInput.valueAsNumber);
-      deleteTodoPositionInput.value = "";
+      todoList.deleteTodo(position);
       view.displayTodos();
     },
 
@@ -121,7 +119,44 @@ var todoList = {
         } else {
           todoLi.textContent = "( ) " + todoList.todos[i].todotext;
         }
-        todosUl.appendChild(todoLi);  
+        
+        todoLi.id = i;
+        todosUl.appendChild(todoLi);
+        todoLi.appendChild(this.createDeleteButton()); 
       }
-    }
+    }, 
+
+    createDeleteButton: function(){
+     
+      var deleteButton = document.createElement("button");
+      deleteButton.textContent = 'Delete'; 
+      deleteButton.className = 'deleteButton';
+      return deleteButton;
+    },
+
+    setUpEventListeners: function(){
+      
+      var todosUl = document.querySelector("ul");
+  
+        todosUl.addEventListener('click',function(event){
+          
+          //console.log(event.target.parentNode.id);
+
+          //Get element that was clicked on
+          var elementClicked = event.target;
+
+          //Check if elementClicked is a delete button 
+          if(elementClicked.className === 'deleteButton'){
+            handlers.deleteTodo(elementClicked.parentNode.id);
+          }
+        });
+      }
   };
+
+  view.setUpEventListeners();
+
+
+
+
+
+  
