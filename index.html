@@ -4,31 +4,34 @@
 	
 	<title>Todo List</title>
 
+	<style>
+	    body{
+	    	text-align: center;
+	    }
+		li{
+			list-style: none;
+		}
+		input{
+			margin-top: 5px;
+		}
+		.editInput{
+			border: none;
+		}
+	</style>
 </head>
 <body>	
 	
 	<h1>Todo List</h1>
+     
+    <div>
+    	<button id='toggleAll'>Toggle ALL</button>	
+		<button id='clearAll'>Clear</button>
+    </div>
 
-	<div>
-		<button onclick="handlers.toggleAll()">Toggle ALl</button>	
-	</div>
-
-	<div>
-		<button onclick="handlers.addTodo()">Add</button>
-		<input type="text" id="addTodoTextInput" >	
-	</div>
+	<input id="addTodo" placeholder="Add a todo">
 	
-	<div>
-		<button onclick="handlers.changeTodo()">Change Todo</button>
-		<input type="number" id="changeTodoPositionInput">
-		<input type = "text" id="changeTodoTextInput">	
-	</div>
-
-	<div>
-		<button onclick="handlers.toggleCompleted()">Toggle Completed</button>
-		<input type="number" id="toggleCompletedPositionInput" >	
-	</div>
-
+	<p><i>Double click to edit</i></p>
+	
 	<ul></ul>
 
 	<script src="scripts/app.js"></script>
