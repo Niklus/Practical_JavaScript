@@ -4,7 +4,7 @@
 Learning pure javascript by making a todo list application without using external frameworks or libraries.
 Inspired by Gordon Zhu's [Course](https://watchandcode.com/)
 
-## Çhallenge
+## Challenge
 
 Build a todo application following the MVC pattern.
 Don't use external libraries for javascript.
