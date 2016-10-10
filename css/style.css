@@ -1,0 +1,36 @@
+body{
+	text-align: center;
+	background-color: #caefdd;
+	color: #021e40;
+}
+li{
+	list-style: none;
+	font-size: 30PX;
+}
+input{
+	font-size: 30PX;
+	width: 50%;
+	font-style: italic;
+}
+ul{
+	margin-top: 10px;
+	margin-right: 40px;
+}
+.editInput{
+	border: none;
+	margin-top: 2px;
+	height: 60px;
+}
+.todoInput{
+    margin-top: 5px;
+}
+#toggleButton{
+	font-size: 30PX;
+	background-color: #caefdd;
+	
+}
+#deleteButton{
+	font-size: 30PX;
+	background-color: #caefdd;
+	color: red;
+}
