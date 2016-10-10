@@ -5,10 +5,10 @@ body{
 }
 li{
 	list-style: none;
-	font-size: 30PX;
+	font-size: 30px;
 }
 input{
-	font-size: 30PX;
+	font-size: 30px;
 	width: 50%;
 	font-style: italic;
 }
@@ -25,12 +25,12 @@ ul{
     margin-top: 5px;
 }
 #toggleButton{
-	font-size: 30PX;
+	font-size: 30px;
 	background-color: #caefdd;
 	
 }
 #deleteButton{
-	font-size: 30PX;
+	font-size: 30px;
 	background-color: #caefdd;
 	color: red;
 }
