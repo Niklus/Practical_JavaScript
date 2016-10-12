@@ -1,6 +1,6 @@
 body{
 	text-align: center;
-	background-color: #caefdd;
+	background-color: #f9eccc;
 	color: #021e40;
 }
 li{
@@ -26,11 +26,11 @@ ul{
 }
 #toggleButton{
 	font-size: 30px;
-	background-color: #caefdd;
+	background-color: #f9eccc;
 	
 }
 #deleteButton{
 	font-size: 30px;
-	background-color: #caefdd;
+	background-color: #f9eccc;
 	color: red;
 }
