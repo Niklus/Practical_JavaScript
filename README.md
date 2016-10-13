@@ -9,8 +9,6 @@ Inspired by Gordon Zhu's [Course](https://watchandcode.com/)
 Build a todo application following the MVC pattern.
 Don't use external libraries for javascript.
 
-[LIVE](http://codepen.io/Niklus/full/ORELNm/)
-
 ## Requirements
 
 The application should be able:
