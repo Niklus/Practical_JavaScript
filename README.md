@@ -2,7 +2,6 @@
 # Practical JavaScript:
 
 Learning pure javascript by making a todo list application without using external frameworks or libraries.
-Inspired by Gordon Zhu's [Course](https://watchandcode.com/)
 
 ## Challenge
 
