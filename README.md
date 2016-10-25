@@ -10,7 +10,7 @@ Don't use external libraries for javascript.
 
 ## Requirements
 
-The application should be able too:
+The application should be able to:
 
 * add and store a todo list
 * edit a todo 
