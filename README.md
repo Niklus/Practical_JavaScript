@@ -10,11 +10,11 @@ Don't use external libraries for javascript.
 
 ## Requirements
 
-The application should be able:
+The application should be able too:
 
-* To add and store a todo list
-* To edit a todo 
-* To delete a todo
-* To toggle complete or inclomplete
-* To toggle all todos
-* To clear done todos
+* add and store a todo list
+* edit a todo 
+* delete a todo
+* toggle complete or inclomplete
+* toggle all todos
+* clear done todos
